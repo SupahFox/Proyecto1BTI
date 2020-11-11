@@ -1,4 +1,5 @@
 
+
 package proyecto;
 import java.util.Scanner;
 import java.util.Random;
@@ -294,40 +295,120 @@ public class Proyecto {
   }
   
      public static int ppot(int a , int b){
-      System.out.println("No hay");
+     Scanner teclado = new Scanner(System.in);  
+     int num1=0;
+     int num2=0;  
+       
+    System.out.println("*************************");
+    System.out.println("JUEGO PIEDRA PAPEL TIJERA");
+    System.out.println("*************************");
+    System.out.println("EL UNO ES PIEDRA");
+    System.out.println("EL DOS ES PAPEL");
+    System.out.println("EL TRES ES TIJERA");
+   
+    do{
+    System.out.println("****************");
+    System.out.println("jugador numero 1");
+    System.out.println("****************");
+    num1= teclado.nextInt();
+    System.out.println("****************");
+    System.out.println("jugador numero 2");
+    System.out.println("****************");
+    num2= teclado.nextInt();
+    if(num1>3){
+    System.out.println("un numero del uno al tres ");
+    }
+    }while(num1>=3);{
+     if(num1==1 && num2==1){
+     System.out.println("hay empate ");
+     } else if(num1==2 && num2==2){
+     System.out.println("hay empate ");
+     } else if(num1==3 && num2==3){
+     System.out.println("hay empate ");
+     }else if(num1==1 && num2==2){
+     System.out.println("el jugador que elijio piedra pierde y el que elijio papel gana ");
+     }else if(num1==1 && num2==3){
+     System.out.println("el jugador que elijio piedra gana y el que elijio tijeras pierde ");
+     }else if(num1==2 && num2==3){
+     System.out.println ("el jugador que elijio papel pierde y el que elijio tijeras gana ");
+     }
       return a + b;
   }
+ }
      
      public static int dados(int a , int b){
      Scanner sc = new Scanner(System.in);
      Random rnd = new Random();
-     int caradado = 0;
-     String op;
+     int op;
      boolean jugador1 = true;
      boolean jugador2 = false;
      int opjugador = 0;
+     int opsalir = 2;
+     int dado1x;
+     int dado2x;
+     int dado3x;
+     int sumadados1 = 0;
+     int sumadados2 = 0;
+     int salir = 0;
      
+     do{
        if(jugador1 == true){
         System.out.println("Jugador 1. Tira tres dados con la tecla 1");
         }
        if(jugador2 == true){
         System.out.println("Jugador 2. Tira tres dados con la tecla 1");
         }
-       op = sc.nextLine();
-        if(op.equals("a1") && jugador1==true){ 
+       op = sc.nextInt();
+        if(op == 1 && jugador1==true){ 
+        dado1x = 1 + rnd.nextInt(6);
+        dado2x = 1 + rnd.nextInt(6);
+        dado3x = 1 + rnd.nextInt(6);
+        sumadados1 = dado1x + dado2x + dado3x;
+            System.out.println("Dados tirados");
+            System.out.println(dado1x);
+            System.out.println(dado2x);
+            System.out.println(dado3x);
+        opjugador++;
         
+        }
+        if(op == 1 && jugador2==true){ 
+        dado1x = 1 + rnd.nextInt(6);
+        dado2x = 1 + rnd.nextInt(6);
+        dado3x = 1 + rnd.nextInt(6);
+        sumadados2 = dado1x + dado2x + dado3x;
+            System.out.println("Dados tirados");
+            System.out.println(dado1x);
+            System.out.println(dado2x);
+            System.out.println(dado3x);
         opjugador++;
         }
-        if(opjugador ==1){
-        jugador1 = true;
-        jugador2 = false;
+        if(opjugador == 2){
+            if(sumadados1 > sumadados2){
+                System.out.println("Jugador 1. Ganaste!!!");
+                salir = 1;
+            }
+            if(sumadados2 > sumadados1){
+                System.out.println("Jugador 2. Ganaste!!!");
+                salir = 1;
+            }
         }
-        if(opjugador ==2){
+        if(opjugador ==1){
         jugador1 = false;
         jugador2 = true;
         }
-       
-         return a + b;
+        if(opjugador ==2){
+        jugador1 = true;
+        jugador2 = false;
+        }
+     if(salir == 1){
+     System.out.println("Desea tirar más dados? Escriba 1 para salir o cualquier número para continuar");
+      sumadados1 = 0;
+      sumadados2 = 0;
+      opjugador = 0;
+     opsalir = sc.nextInt();
+     }
+     }while(opsalir !=1);
+     return a + b;
      }
   
      public static int moneda (int a, int b){
@@ -355,4 +436,5 @@ public class Proyecto {
      }while(op != 1);
      return a + b;
 }
- }
+  
+}
