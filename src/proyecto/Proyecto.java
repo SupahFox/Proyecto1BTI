@@ -1,5 +1,4 @@
 
-
 package proyecto;
 import java.util.Scanner;
 import java.util.Random;
@@ -24,15 +23,17 @@ public class Proyecto {
          int tateti= tateti(num1 , num1);
           break;
         case 2:
-         int ppot= ppot(num1 , num1);
+         int ppt= ppt(num1 , num1);
           break;
         case 3:
          int dados= dados(num1 , num1);
           break;
+        case 4:
+         int cartas= cartas(num1 , num1);
+          break;
         case 5:
          int moneda= moneda(num1 , num1);
           break;
-
         }
      System.out.println("Deseas salir? Oprime 1 para salir o escribe cualquier número para continuar");
      salir = teclado.nextInt();
@@ -294,7 +295,7 @@ public class Proyecto {
     return a + b;
   }
   
-     public static int ppot(int a , int b){
+     public static int ppt(int a , int b){
      Scanner teclado = new Scanner(System.in);  
      int num1=0;
      int num2=0;  
@@ -437,4 +438,33 @@ public class Proyecto {
      return a + b;
 }
   
+     public static int cartas (int a, int b){
+     Scanner sc = new Scanner(System.in);
+     Random rnd = new Random();
+     int array1[] = new int[24];
+     int array2[] = new int[24];
+         System.out.println("el cada numero es la carta del mismo numero");
+     for(int i = 0; i<array1.length; i++){
+         System.out.println("se reparten las cartas"); 
+         array1[i]= 1+rnd.nextInt(50);
+     } for(int i = 0; i<array2.length; i++){
+         System.out.println("se reparten las cartas");
+         array2[i]= 1+rnd.nextInt(50);
+     } for (int i = 0; i<array1.length; i++) {
+         System.out.println("**********");    
+         System.out.println("jugador 1 ");
+         System.out.println("**********");
+         System.out.println("tira carta" + array1[i]);
+         System.out.println("**********");    
+         System.out.println("jugador 2 ");
+         System.out.println("**********");
+         System.out.println("tira carta" + array2[i]);
+         if (array1[i]>array2[i]) {
+             System.out.println("gana el jugador 1");
+         }
+         }
+              
+     
+      return a + b;
+     }
 }
