@@ -15,7 +15,8 @@ public class Proyecto {
         System.out.println("2 para piedra papel o tijeras");
         System.out.println("3 para juego de dados");
         System.out.println("4 para cartas ");
-        System.out.println("5 para juego de la moneda");      
+        System.out.println("5 para juego de la moneda");
+        System.out.println("6 para preguntados");   
     
     num1= teclado.nextInt();
         switch(num1){
@@ -34,6 +35,9 @@ public class Proyecto {
         case 5:
          int moneda= moneda(num1 , num1);
           break;
+        case 6:
+         int preguntados= preguntados(num1 , num1);
+          break;
         }
      System.out.println("Deseas salir? Oprime 1 para salir o escribe cualquier número para continuar");
      salir = teclado.nextInt();
@@ -51,9 +55,10 @@ public class Proyecto {
     
     boolean X = true;
     boolean O = false;
+    boolean repetido = false;
     int cont = 0;
     int salir = 0;
-    int repetido = 0;
+    int existente = 0;
        
         System.out.println(" ");
         System.out.println("TATETI");
@@ -85,14 +90,21 @@ public class Proyecto {
         
         //LINEA 1
         //A1
-        if(op.equals("a1") && X==true){ 
+        if(op.equals("a1") && X==true){
         fila1[0] = 'X';
         cont++;
+        repetido = true;
+        } else if(fila1[0] == 'X'){
+            System.out.println("Ya hay un valor en esa posición");
+            fila1[0] = 'X';
         }
         
         if(op.equals("a1") && O==true){ 
         fila1[0] = 'O';
         cont++;
+        } else if(fila1[0] == 'O'){
+            System.out.println("Ya hay un valor en esa posición");
+            fila1[0] = 'O';
         }
         
        //A2
@@ -466,5 +478,111 @@ public class Proyecto {
               
      
       return a + b;
+     }
+     
+     public static int preguntados (int a, int b){
+       Scanner teclado = new Scanner(System.in); 
+    int num1=0;
+    System.out.println("*******");
+    System.out.println("COMIENZA EL PREGUNTAS");
+    System.out.println("*******");
+    
+        do {
+        System.out.println("PREGUNTA NUMERO uno");
+        System.out.println("QUE TEMA NO ES DE INFORMATICA?");
+        System.out.println("respuesta 1, neobatllismo");
+        System.out.println("respuesta 2, java ");
+        System.out.println("respuesta 3, mantenimiento preventivo ");
+        System.out.println("escoja una respuesta");
+        num1=teclado.nextInt();
+        
+        if(num1==1){
+        System.out.println("bien!!!!");
+        }else if(num1==2){
+        System.out.println("java es el lenguaje de programacion, la respuesta correcta es la 1");
+        }else if(num1==3){
+        System.out.println("es un tema de laboratorio de soporte");
+        }else if (num1!=1 && num1!=2 && num1!=3) {
+               System.out.println("no hay una respuesta " + num1);
+            }
+       
+          System.out.println("PREGUNTA NUMERO dos");
+        System.out.println("cuantos pokemons existen?");
+        System.out.println("respuesta 1, 10889");
+        System.out.println("respuesta 2, 802 ");
+        System.out.println("respuesta 3, 105 ");
+        System.out.println("escoja una respuesta");
+        num1=teclado.nextInt();
+        
+        if(num1==1){
+        System.out.println("no, la correcta es la respuesta 2");
+        }else if(num1==2){
+        System.out.println("CORRECTO");
+        }else if(num1==3){
+        System.out.println("no, la correcta es la respuesta 2");
+        }else if (num1!=1 && num1!=2 && num1!=3) {
+               System.out.println("no hay una respuesta " + num1);
+            }    
+        
+        System.out.println("PREGUNTA NUMERO tres");
+        System.out.println("quien gano la segunda guerra mundial?");
+        System.out.println("respuesta 1, luis batlles berres");
+        System.out.println("respuesta 2, Hitler  ");
+        System.out.println("respuesta 3, ninguna de las anteriores ");
+        System.out.println("escoja una respuesta");
+        num1=teclado.nextInt();
+        
+        if(num1==1){
+        System.out.println("no,es la tercera respuesta ");
+        }else if(num1==2){
+        System.out.println("no, es la tercera respuesta ");
+        }else if(num1==3){
+        System.out.println("CORRECTO");
+        }else if (num1!=1 && num1!=2 && num1!=3) {
+               System.out.println("no hay una respuesta " + num1);
+            }       
+                
+        System.out.println("PREGUNTA NUMERO cuatro");
+        System.out.println("cual de estas opciones no es una pelicula");
+        System.out.println("respuesta 1, titanic");
+        System.out.println("respuesta 2, rapidos y furiosos 8 ");
+        System.out.println("respuesta 3, la casa de papel ");
+        System.out.println("escoja una respuesta");
+        num1=teclado.nextInt();
+        
+        if(num1==1){
+        System.out.println("no,es la tercera respuesta ");
+        }else if(num1==2){
+        System.out.println("no, es la tercera respuesta ");
+        }else if(num1==3){
+        System.out.println("CORRECTO");
+        }else if (num1!=1 && num1!=2 && num1!=3) {
+        System.out.println("no hay una respuesta " + num1);
+            }       
+                
+         System.out.println("PREGUNTA NUMERO cinco");
+        System.out.println("cual de estos pokemons nadie elige al principio del juego");
+        System.out.println("respuesta 1,bulbasur");
+        System.out.println("respuesta 2, charmander   ");
+        System.out.println("respuesta 3, squirtel ");
+        System.out.println("escoja una respuesta");
+        num1=teclado.nextInt();
+        
+        if(num1==1){
+        System.out.println("CORRECTO ");
+        }else if(num1==2){
+        System.out.println("no, es la primera respuesta  ");
+        }else if(num1==3){
+        System.out.println("no, es la primera respuesta ");
+        }else if (num1!=1 && num1!=2 && num1!=3) {
+               System.out.println("no hay una respuesta " + num1);
+            }       
+                 System.out.println("Desea jugar otra vez Escribe 1 para salir");
+                 num1 = teclado.nextInt();
+      
+                
+                
+            } while (num1 !=1);
+        return a + b;
      }
 }
